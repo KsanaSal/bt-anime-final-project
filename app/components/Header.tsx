@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import LogoMovieIcon from "../assets/icons/LogoMovieIcon";
+import LogoIcon from "../assets/icons/LogoIcon";
 // import SearchInput from "./assets/icons/SearchInput";
 import LibraryIcon from "../assets/icons/LibraryIcon";
 import HomeIcon from "../assets/icons/HomeIcon";
@@ -9,15 +9,18 @@ import UserIcon from "../assets/icons/UserIcon";
 
 const Header = () => {
     return (
-        <header className="flex flex-col items-center max-w-screen gap-5 md:gap-[30px] bg-headerPatternMob md:bg-headerPatternTab lg:bg-headerPatternDes bg-no-repeat bg-cover bg-center px-[16px] md:px-[32px] lg:px-[40px] py-4 md:py-6 lg:py-8 text-primaryLight">
+        <header
+            className="flex flex-col items-center max-w-screen h-90 gap-5 md:gap-7.5
+        bg-header md:bg-header lg:bg-header bg-no-repeat bg-cover bg-center px-4 md:px-8 lg:px-10 py-6 md:py-8 lg:py-10 text-primaryLight"
+        >
             <div className="flex justify-between gap-2 w-full">
                 <Link
                     href={"/"}
-                    className="flex gap-[8px] items-center text-primaryLight h-max group hover:text-accent hover:scale-110 transform transition duration-200 ease-in-out"
+                    className="flex gap-2 items-center text-primaryLight h-max group hover:text-accent hover:scale-110 transform transition duration-200 ease-in-out"
                 >
-                    {/* <div className="flex items-center justify-center w-[30px] h-[30px] rounded-[4px] bg-primaryDarkGradient p-[4px] border border-transparent-primaryLight7 group-hover:fill-accent group-hover:shadow-boxPrimaryLight">
-                        <LogoMovieIcon className="w-[24px] h-[24px]" />
-                    </div> */}
+                    <div className="flex items-center justify-center w-11.25 h-[40px] rounded-[4px] bg-primaryDarkGradient p-[4px] border border-transparent-primaryLight7 group-hover:fill-accent group-hover:shadow-boxPrimaryLight">
+                        <LogoIcon className="w-[45px] h-[40px]" />
+                    </div>
 
                     <h1 className="hidden md:flex text-[24px] lg:text-[30px] font-medium group-hover:text-accent group-hover:drop-shadow-textPrimaryLight">
                         Filmoteka
