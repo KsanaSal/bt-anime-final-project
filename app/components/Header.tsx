@@ -1,6 +1,6 @@
 import Link from "next/link";
 import LogoIcon from "../assets/icons/LogoIcon";
-// import SearchInput from "./assets/icons/SearchInput";
+import SearchInput from "./Input/SearchInput";
 import LibraryIcon from "../assets/icons/LibraryIcon";
 import HomeIcon from "../assets/icons/HomeIcon";
 // import ListPopular from "./ListPopular";
@@ -10,7 +10,7 @@ import UserIcon from "../assets/icons/UserIcon";
 const Header = () => {
     return (
         <header
-            className="flex flex-col items-center max-w-screen h-90 gap-5 md:gap-7.5
+            className="flex flex-col items-center max-w-screen h-75 gap-5 md:gap-7.5
         bg-header md:bg-header lg:bg-header px-4 md:px-8 lg:px-10 py-6 md:py-8 lg:py-10 text-primaryLight"
         >
             <div className="flex justify-between items-center gap-2 w-full">
@@ -49,7 +49,7 @@ const Header = () => {
                     /> */}
                 </div>
             </div>
-            {/* <SearchInput /> */}
+            <SearchInput />
             {/* <ListPopular /> */}
         </header>
     );
