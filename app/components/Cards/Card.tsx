@@ -1,7 +1,7 @@
 import Image from "next/image";
 // import ButtonPopular from "../Buttons/ButtonPopular";
 // import NowPlayingIcon from "@/app/assets/icons/NowPlayingIcon";
-import Picture from "../../assets/images/picture-min.png";
+// import Picture from "../../assets/images/picture-min.png";
 
 const Card = ({ anime }: any) => {
     return (
@@ -27,7 +27,7 @@ const Card = ({ anime }: any) => {
                             .join(", ")}
                     </p>
                     <div>|</div>
-                    <span>{anime.year}</span>
+                    <span>{anime.year || "?"}</span>
                     {/* <span>⭐ {anime.score}</span> */}
                 </div>
             </div>
