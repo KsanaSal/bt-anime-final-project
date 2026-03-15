@@ -9,15 +9,6 @@ const Pagination = ({ lastPage }: { lastPage: number }) => {
     const currentPage = Number(params.get("page")) || 1;
     const query = params.get("q") || "";
 
-    // const changePage = (page: number) => {
-    //     if (query) {
-    //         router.push(`/?q=${query}&page=${page}`);
-    //     } else {
-    //         router.push(`/?page=${page}`);
-    //     }
-    //     router.refresh();
-    // };
-
     const getPage = () => {
         const pages = [];
         const max = 5;
@@ -32,18 +23,18 @@ const Pagination = ({ lastPage }: { lastPage: number }) => {
         for (let i = start; i <= end; i++) {
             pages.push(i);
         }
-        console.log(pages);
+        // console.log(pages);
 
         return pages;
     };
 
     const pages = getPage();
-    console.log(pages);
+    // console.log(pages);
 
     const handleClick = (page: number) => {
         const href = query ? `/?q=${query}&page=${page}` : `/?page=${page}`;
         router.push(href);
-        router.refresh();
+        // router.refresh();
     };
 
     return (

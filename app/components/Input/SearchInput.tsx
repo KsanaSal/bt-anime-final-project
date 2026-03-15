@@ -24,7 +24,7 @@ const SearchInput = () => {
             return;
         }
 
-        router.push(`/?q=${encodeURIComponent(search)}`);
+        router.push(`/?q=${encodeURIComponent(search)}&page=1`);
     };
 
     return (

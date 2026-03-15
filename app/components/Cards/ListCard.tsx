@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-const ListCard = ({ anime }: any) => {
+const ListCard = ({ anime }: { anime: any[] }) => {
     if (!anime || anime.length === 0) {
         return <p className="py-8 text-center">No anime found</p>;
     }

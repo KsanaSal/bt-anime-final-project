@@ -18,7 +18,8 @@ async function getAnime(query: string, page: number) {
         return { data: [], pagination: { last_visible_page: 1 } };
     }
 
-    return res.json();
+    const data = await res.json();
+    return data;
 }
 
 export default async function Home({
@@ -32,11 +33,13 @@ export default async function Home({
     const page = Number(params.page) || 1;
 
     const data = await getAnime(query, page);
-    const lastPage = data.pagination?.last_visible_page || 1;
+
+    const anime = data?.data || [];
+    const lastPage = data?.pagination?.last_visible_page || 1;
 
     return (
         <Container>
-            <ListCard anime={data?.data || []} />
+            <ListCard anime={anime} />
             <Pagination lastPage={lastPage} />
         </Container>
     );
