@@ -21,7 +21,7 @@ const ButtonIcon = ({
     return (
         <button
             type={type}
-            className={`rounded rounded-2 ${bgColor} p-1 ${border} ${borderColor} font-medium uppercase h-7.5 w-7.5 flex items-center justify-center hover:text-(--accent) hover:scale-110 hover:shadow-(--boxPrimaryLight) transform transition duration-200 ease-in-out`}
+            className={`cursor-pointer rounded rounded-2 ${bgColor} p-1 ${border} ${borderColor} font-medium uppercase h-7.5 w-7.5 flex items-center justify-center hover:text-(--accent) hover:scale-110 hover:shadow-(--boxPrimaryLight) transform transition duration-200 ease-in-out`}
         >
             {icon}
         </button>

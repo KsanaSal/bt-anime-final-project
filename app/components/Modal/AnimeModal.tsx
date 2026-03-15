@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import ActionButton from "../Buttons/ActionButton";
+import ButtonIcon from "../Buttons/ButtonIcon";
+import CloseIcon from "../../assets/icons/CloseIcon";
 
 const backdropVariants = {
     hidden: { opacity: 0 },
@@ -51,10 +53,10 @@ const AnimeModal = ({ anime, onClose }: any) => {
                     {/* Інформація */}
                     <div className="w-2/3 p-6 flex flex-col gap-3">
                         <button
+                            className="absolute top-3 right-3 text-2xl font-bold cursor-pointer text-gray-950 hover:text-shadow-rose-700 hover:scale-120 transform transition duration-200 ease-in-out"
                             onClick={onClose}
-                            className="absolute top-3 right-3 text-2xl font-bold"
                         >
-                            ✕
+                            <CloseIcon className="w-8 h-8 fill-current hover:fill-current" />
                         </button>
 
                         <h2 className="text-3xl font-bold text-rose-950">
