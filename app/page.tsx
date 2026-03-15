@@ -3,9 +3,11 @@ import Container from "./components/Layout/Container";
 import Pagination from "./components/Pagination";
 
 async function getAnime(query: string, page: number) {
-    const url = query
-        ? `https://api.jikan.moe/v4/anime?q=${query}&limit=12`
-        : "https://api.jikan.moe/v4/anime?limit=12";
+    const base = "https://api.jikan.moe/v4/anime";
+    const url =
+        query.trim().length > 0
+            ? `${base}?q=${encodeURIComponent(query)}&page=${page}&limit=12`
+            : `${base}?page=${page}&limit=12`;
 
     let res = await fetch(url, {
         next: { revalidate: 3600 },

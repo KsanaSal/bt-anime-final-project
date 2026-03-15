@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
 
 const Pagination = ({ lastPage }: { lastPage: number }) => {
     const router = useRouter();
@@ -49,18 +48,6 @@ const Pagination = ({ lastPage }: { lastPage: number }) => {
 
     return (
         <div className="flex items-center justify-center gap-2 mt-10 text-white">
-            {/* <Link
-                href={
-                    query
-                        ? `/?q=${query}&page=${currentPage - 1}`
-                        : `/?page=${currentPage - 1}`
-                }
-                className={`px-3 py-1 border-none bg-rose-950 rounded  ${
-                    currentPage === 1 ? "opacity-40 pointer-events-none" : ""
-                }`}
-            >
-                Prev
-            </Link> */}
             <button
                 disabled={currentPage === 1}
                 onClick={() => handleClick(currentPage - 1)}
@@ -71,17 +58,6 @@ const Pagination = ({ lastPage }: { lastPage: number }) => {
                 Prev
             </button>
 
-            {/* {pages[0] > 1 && (
-                <>
-                    <Link
-                        href={query ? `/?q=${query}&page=1` : `/?page=1`}
-                        className="px-3 py-1 border-none text-rose-950 rounded"
-                    >
-                        1
-                    </Link>
-                    {pages[0] > 2 && <span>...</span>}
-                </>
-            )} */}
             {pages[0] > 1 && (
                 <>
                     <button
@@ -94,19 +70,6 @@ const Pagination = ({ lastPage }: { lastPage: number }) => {
                 </>
             )}
 
-            {/* {pages.map((page) => (
-                <Link
-                    key={page}
-                    href={
-                        query ? `/?q=${query}&page=${page}` : `/?page=${page}`
-                    }
-                    className={`px-3 py-1 border-none text-rose-950 rounded ${
-                        page === currentPage ? "bg-orange-500 text-white" : ""
-                    }`}
-                >
-                    {page}
-                </Link>
-            ))} */}
             {pages.map((page) => (
                 <button
                     key={page}
@@ -119,21 +82,6 @@ const Pagination = ({ lastPage }: { lastPage: number }) => {
                 </button>
             ))}
 
-            {/* {pages[pages.length - 1] < lastPage && (
-                <>
-                    {pages[pages.length - 1] < lastPage - 1 && <span>...</span>}
-                    <Link
-                        href={
-                            query
-                                ? `/?q=${query}&page=${lastPage}`
-                                : `/?page=${lastPage}`
-                        }
-                        className="px-3 py-1 border-none text-rose-950 rounded"
-                    >
-                        {lastPage}
-                    </Link>
-                </>
-            )} */}
             {pages[pages.length - 1] < lastPage && (
                 <>
                     {pages[pages.length - 1] < lastPage - 1 && <span>...</span>}
@@ -146,20 +94,6 @@ const Pagination = ({ lastPage }: { lastPage: number }) => {
                 </>
             )}
 
-            {/* <Link
-                href={
-                    query
-                        ? `/?q=${query}&page=${currentPage + 1}`
-                        : `/?page=${currentPage + 1}`
-                }
-                className={`px-3 py-1 border-none bg-rose-950 rounded ${
-                    currentPage === lastPage
-                        ? "opacity-40 pointer-events-none"
-                        : ""
-                }`}
-            >
-                Next
-            </Link> */}
             <button
                 disabled={currentPage === lastPage}
                 onClick={() => handleClick(currentPage + 1)}

@@ -12,7 +12,10 @@ const SearchInput = () => {
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!search.trim()) return;
+        if (!search.trim()) {
+            router.push("/");
+            return;
+        }
 
         router.push(`/?q=${encodeURIComponent(search)}`);
         router.refresh();
