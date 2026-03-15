@@ -3,7 +3,7 @@ import Image from "next/image";
 // import NowPlayingIcon from "@/app/assets/icons/NowPlayingIcon";
 // import Picture from "../../assets/images/picture-min.png";
 
-const Card = ({ anime }: any) => {
+const Card = ({ anime, onClick }: any) => {
     if (!anime) return null;
 
     const image =
@@ -15,7 +15,10 @@ const Card = ({ anime }: any) => {
     const year = anime?.year || "?";
 
     return (
-        <div className="relative flex flex-col gap-4 w-70 h-110 md:w-80 md:h-120 lg:w-96 lg:h-155 text-black transition duration-300 hover:scale-105 hover:shadow-2xl bg-rose-50 rounded-lg ">
+        <div
+            className="relative flex flex-col gap-4 w-70 h-110 md:w-80 md:h-120 lg:w-96 lg:h-155 text-black transition duration-300 hover:scale-105 hover:shadow-2xl bg-rose-50 rounded-lg "
+            onClick={onClick}
+        >
             <div className="w-70 md:w-80 lg:w-96 h-100 md:h-112.5 lg:h-145 overflow-hidden rounded-lg">
                 <Image
                     width={280}
