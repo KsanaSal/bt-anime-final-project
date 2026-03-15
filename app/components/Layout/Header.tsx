@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import LogoIcon from "../../assets/icons/LogoIcon";
 import SearchInput from "../Input/SearchInput";
 import LibraryIcon from "../../assets/icons/LibraryIcon";
@@ -52,7 +53,9 @@ const Header = () => {
                     /> */}
                         </div>
                     </div>
-                    <SearchInput />
+                    <Suspense fallback={null}>
+                        <SearchInput />
+                    </Suspense>
                     {/* <ListPopular /> */}
                 </div>
             </Container>

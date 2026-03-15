@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ListCard from "./components/Cards/ListCard";
 import Container from "./components/Layout/Container";
 import Pagination from "./components/Pagination";
@@ -40,7 +41,9 @@ export default async function Home({
     return (
         <Container>
             <ListCard anime={anime} />
-            <Pagination lastPage={lastPage} />
+            <Suspense fallback={null}>
+                <Pagination lastPage={lastPage} />
+            </Suspense>
         </Container>
     );
 }
