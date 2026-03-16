@@ -16,7 +16,7 @@ const ActionButton = ({
     className = "",
 }: ActionButtonProps) => {
     const baseStyles =
-        "px-4 py-2 rounded font-medium transition transition-transform duration-150 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg";
+        "px-4 py-2 rounded font-medium transition transition-transform duration-150 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg text-xs md:text-base lg:text-lg";
 
     const variants: Record<string, string> = {
         primary:

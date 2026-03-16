@@ -3,8 +3,12 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import ActionButton from "../Buttons/ActionButton";
-import ButtonIcon from "../Buttons/ButtonIcon";
 import CloseIcon from "../../assets/icons/CloseIcon";
+
+interface AnimeModalProps {
+    anime: any;
+    onClose: () => void;
+}
 
 const backdropVariants = {
     hidden: { opacity: 0 },
@@ -17,98 +21,99 @@ const modalVariants = {
     exit: { opacity: 0, scale: 0.8 },
 };
 
-const AnimeModal = ({ anime, onClose }: any) => {
+const AnimeModal: React.FC<AnimeModalProps> = ({ anime, onClose }) => {
     if (!anime) return null;
 
     return (
-        <AnimatePresence>
+        <motion.div
+            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+            variants={backdropVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            onClick={onClose}
+        >
             <motion.div
-                className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
-                variants={backdropVariants}
+                className="bg-white w-xs h-[960px] md:w-[700px] md:w-[550px] lg:w-[810px] xl:w-[1050px]  rounded-xl flex flex-col md:flex-row gap-5 md:gap-[65px] lg:gap-4 lg:flex-row overflow-hidden absolute inset-x-[50%] inset-y-[50%] translate-x-[-50%] translate-y-[-50%] px-5 lg:px-6 py-12 lg:py-14"
+                variants={modalVariants}
                 initial="hidden"
                 animate="visible"
-                exit="hidden"
-                onClick={onClose}
+                exit="exit"
+                transition={{ duration: 0.25 }}
+                onClick={(e) => e.stopPropagation()}
             >
-                <motion.div
-                    className="bg-white max-w-4xl w-full rounded-xl flex overflow-hidden relative px-6 py-10"
-                    variants={modalVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    transition={{ duration: 0.25 }}
-                    onClick={(e) => e.stopPropagation()}
+                <div className="w-[240px] h-[360px] md:w-[264px] md:h-[370px] lg:w-[375px] lg:h-[480px] xl:w-[480px] xl:h-[600px] rounded-lg overflow-hidden">
+                    <Image
+                        src={anime.images.jpg.image_url}
+                        alt={anime.title}
+                        width={300}
+                        height={450}
+                        className="object-cover h-full w-full"
+                    />
+                </div>
+                <button
+                    className="absolute top-3 right-3 text-2xl font-bold cursor-pointer text-gray-950 hover:text-shadow-rose-700 hover:scale-[1.1] transform transition duration-200 ease-in-out"
+                    onClick={onClose}
                 >
-                    {/* Постер */}
-                    <div className="w-94 rounded-lg overflow-hidden">
-                        <Image
-                            src={anime.images.jpg.image_url}
-                            alt={anime.title}
-                            width={300}
-                            height={450}
-                            className="object-cover h-full w-full"
-                        />
-                    </div>
+                    <CloseIcon className="w-8 h-8 fill-current hover:fill-current" />
+                </button>
 
-                    {/* Інформація */}
-                    <div className="w-2/3 p-6 flex flex-col gap-3">
-                        <button
-                            className="absolute top-3 right-3 text-2xl font-bold cursor-pointer text-gray-950 hover:text-shadow-rose-700 hover:scale-120 transform transition duration-200 ease-in-out"
-                            onClick={onClose}
-                        >
-                            <CloseIcon className="w-8 h-8 fill-current hover:fill-current" />
-                        </button>
-
-                        <h2 className="text-3xl font-bold text-rose-950">
+                <div className="w-68 lg:w-2/3 flex flex-col gap-5 max-h-[90vh] overflow-y-auto md:overflow-y-hidden">
+                    <div className="overflow-y-auto flex-1 pr-2 flex flex-col gap-5">
+                        <h2 className="text-xl lg:text-3xl font-bold text-rose-950">
                             {anime.title}
                         </h2>
 
-                        <div className="flex gap-20 items-center">
-                            <p className="text-gray-400 text-lg capitalize">
-                                vote / votes{" "}
-                            </p>
-                            <div className="flex items-center gap-2">
-                                <span className="bg-orange-500 text-white px-2 py-0.5 rounded">
-                                    {anime.score || "N/A"}
-                                </span>
+                        <div className="flex flex-col gap-2">
+                            <div className="flex lg:gap-20 items-center justify-between text-base lg:text-lg">
+                                <p className="text-gray-400 capitalize">
+                                    vote / votes{" "}
+                                </p>
+                                <div className="flex items-center gap-2">
+                                    <span className="bg-orange-500 text-white px-2 py-0.5 rounded">
+                                        {anime.score || "N/A"}
+                                    </span>
+                                    <span className="text-gray-600">
+                                        / {anime.members || "?"}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="flex lg:gap-25 items-center justify-between text-base lg:text-lg">
+                                <p className="text-gray-400 capitalize">
+                                    Popularity
+                                </p>
                                 <span className="text-gray-600">
-                                    / {anime.members || "?"}
+                                    {anime.popularity || "N/A"}
+                                </span>
+                            </div>
+
+                            <div className="flex lg:gap-20 items-center justify-between text-base lg:text-lg">
+                                <p className="text-gray-400 capitalize">
+                                    Original Title
+                                </p>
+                                <span className="text-gray-600">
+                                    {anime.title_english || anime.title}
+                                </span>
+                            </div>
+
+                            <div className="flex lg:gap-33 items-center justify-between text-base lg:text-lg">
+                                <p className="text-gray-400 capitalize">
+                                    Genre
+                                </p>
+                                <span className="text-gray-600">
+                                    {anime.genres
+                                        ?.map((g: any) => g.name)
+                                        .join(", ") || "Unknown"}
                                 </span>
                             </div>
                         </div>
 
-                        <div className="flex gap-25 items-center">
-                            <p className="text-gray-400 text-lg capitalize">
-                                Popularity
+                        <div className="flex flex-col gap-2 text-gray-700 text-sm">
+                            <p className="font-bold uppercase text-base lg:text-lg">
+                                About
                             </p>
-                            <span className="text-gray-600">
-                                {anime.popularity || "N/A"}
-                            </span>
-                        </div>
-
-                        <div className="flex gap-20 items-center">
-                            <p className="text-gray-400 text-lg capitalize">
-                                Original Title
-                            </p>
-                            <span className="text-gray-600">
-                                {anime.title_english || anime.title}
-                            </span>
-                        </div>
-
-                        <div className="flex gap-33 items-center">
-                            <p className="text-gray-400 text-lg capitalize">
-                                Genre
-                            </p>
-                            <span className="text-gray-600">
-                                {anime.genres
-                                    ?.map((g: any) => g.name)
-                                    .join(", ") || "Unknown"}
-                            </span>
-                        </div>
-
-                        <div className="mt-2 text-gray-700 text-sm">
-                            <p className="font-bold uppercase text-lg">About</p>
-                            <p className="text-base">
+                            <p className="text-sm lg:text-base">
                                 {anime.synopsis || "No description available."}
                             </p>
                         </div>
@@ -128,9 +133,9 @@ const AnimeModal = ({ anime, onClose }: any) => {
                             </ActionButton>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </motion.div>
-        </AnimatePresence>
+        </motion.div>
     );
 };
 

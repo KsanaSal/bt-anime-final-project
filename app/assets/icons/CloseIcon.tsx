@@ -8,8 +8,8 @@ const CloseIcon = ({ ...props }) => {
             xmlns="http://www.w3.org/2000/svg"
             {...props}
         >
-            <path d="M8 8L22 22" stroke="currentColor" stroke-width="2" />
-            <path d="M8 22L22 8" stroke="currentColor" stroke-width="2" />
+            <path d="M8 8L22 22" stroke="currentColor" strokeWidth="2" />
+            <path d="M8 22L22 8" stroke="currentColor" strokeWidth="2" />
         </svg>
     );
 };
