@@ -34,7 +34,7 @@ const AnimeModal: React.FC<AnimeModalProps> = ({ anime, onClose }) => {
             onClick={onClose}
         >
             <motion.div
-                className="bg-white w-xs h-[960px] md:w-[700px] md:w-[550px] lg:w-[810px] xl:w-[1050px]  rounded-xl flex flex-col md:flex-row gap-5 md:gap-[65px] lg:gap-4 lg:flex-row overflow-hidden absolute inset-x-[50%] inset-y-[50%] translate-x-[-50%] translate-y-[-50%] px-5 lg:px-6 py-12 lg:py-14"
+                className="bg-white w-xs h-[960px] md:w-[700px] lg:w-[810px] xl:w-[1050px]  rounded-xl flex flex-col md:flex-row gap-5 md:gap-[65px] lg:gap-4 lg:flex-row overflow-hidden absolute inset-x-[50%] inset-y-[50%] translate-x-[-50%] translate-y-[-50%] px-5 lg:px-6 py-12 lg:py-14"
                 variants={modalVariants}
                 initial="hidden"
                 animate="visible"
