@@ -12,7 +12,7 @@ import Container from "./Container";
 const Header = () => {
     return (
         <header
-            className=" fixed top-0 z-50 flex flex-col items-center w-full h-75  
+            className=" fixed top-0 z-50 flex flex-col items-center w-full h-[250px]  
         bg-header md:bg-header lg:bg-header py-6 md:py-8 lg:py-10 text-primaryLight"
         >
             <Container>
@@ -22,7 +22,7 @@ const Header = () => {
                             href={"/"}
                             className="flex gap-2 items-center text-(--primaryLight) h-max group hover:text-(--accent) hover:scale-110 transform transition duration-200 ease-in-out"
                         >
-                            <div className="flex items-center justify-center w-11.25 h-10 rounded rounded-2 bg-(--primaryDarkGradient) p-1 border border-(--primaryLight) group-hover:fill-(--accent) hover:shadow-(--boxPrimaryLight)">
+                            <div className="flex items-center justify-center w-11.25 h-10 p-1 group-hover:fill-(--accent) group-hover:drop-shadow-(--boxPrimaryLight)">
                                 <LogoIcon className="w-11.25 h-10" />
                             </div>
 
