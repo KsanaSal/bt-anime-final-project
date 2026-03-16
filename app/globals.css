@@ -94,6 +94,14 @@ a {
         background-position: center, center, center;
         background-repeat: no-repeat, no-repeat, no-repeat;
     }
+
+    .bg-footer {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            linear-gradient(rgba(2, 21, 65, 1), rgba(2, 21, 65, 1));
+        background-size: cover, cover, cover;
+        background-position: center, center, center;
+        background-repeat: no-repeat, no-repeat, no-repeat;
+    }
 }
 
 /* @theme inline {
