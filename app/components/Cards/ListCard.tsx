@@ -1,12 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
 import AnimeModal from "../Modal/AnimeModal";
 import { AnimatePresence } from "framer-motion";
 
 const ListCard = ({ anime }: { anime: any[] }) => {
     const [selectedAnime, setSelectedAnime] = useState<any>(null);
+
+    useEffect(() => {
+        if (selectedAnime) {
+            document.body.style.overflow = "hidden";
+            document.documentElement.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
+        }
+
+        return () => {
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
+        };
+    }, [selectedAnime]);
 
     if (!anime || anime.length === 0) {
         return <p className="py-8 text-center">No anime found</p>;

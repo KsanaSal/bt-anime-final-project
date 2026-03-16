@@ -59,79 +59,75 @@ const AnimeModal: React.FC<AnimeModalProps> = ({ anime, onClose }) => {
                 </button>
 
                 <div className="w-68 lg:w-2/3 flex flex-col gap-5 max-h-[90vh] overflow-y-auto md:overflow-y-hidden">
-                    <div className="overflow-y-auto flex-1 pr-2 flex flex-col gap-5">
-                        <h2 className="text-xl lg:text-3xl font-bold text-rose-950">
-                            {anime.title}
-                        </h2>
+                    <h2 className="text-xl lg:text-3xl font-bold text-rose-950">
+                        {anime.title}
+                    </h2>
 
-                        <div className="flex flex-col gap-2">
-                            <div className="flex lg:gap-20 items-center justify-between text-base lg:text-lg">
-                                <p className="text-gray-400 capitalize">
-                                    vote / votes{" "}
-                                </p>
-                                <div className="flex items-center gap-2">
-                                    <span className="bg-orange-500 text-white px-2 py-0.5 rounded">
-                                        {anime.score || "N/A"}
-                                    </span>
-                                    <span className="text-gray-600">
-                                        / {anime.members || "?"}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div className="flex lg:gap-25 items-center justify-between text-base lg:text-lg">
-                                <p className="text-gray-400 capitalize">
-                                    Popularity
-                                </p>
-                                <span className="text-gray-600">
-                                    {anime.popularity || "N/A"}
-                                </span>
-                            </div>
-
-                            <div className="flex lg:gap-20 items-center justify-between text-base lg:text-lg">
-                                <p className="text-gray-400 capitalize">
-                                    Original Title
-                                </p>
-                                <span className="text-gray-600">
-                                    {anime.title_english || anime.title}
-                                </span>
-                            </div>
-
-                            <div className="flex lg:gap-33 items-center justify-between text-base lg:text-lg">
-                                <p className="text-gray-400 capitalize">
-                                    Genre
-                                </p>
-                                <span className="text-gray-600">
-                                    {anime.genres
-                                        ?.map((g: any) => g.name)
-                                        .join(", ") || "Unknown"}
-                                </span>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col gap-2 text-gray-700 text-sm">
-                            <p className="font-bold uppercase text-base lg:text-lg">
-                                About
+                    <div className="flex flex-col gap-2">
+                        <div className="flex lg:gap-20 items-center justify-between text-base lg:text-lg">
+                            <p className="text-gray-400 capitalize">
+                                vote / votes{" "}
                             </p>
-                            <p className="text-sm lg:text-base">
-                                {anime.synopsis || "No description available."}
-                            </p>
+                            <div className="flex items-center gap-2">
+                                <span className="bg-orange-500 text-white px-2 py-0.5 rounded">
+                                    {anime.score || "N/A"}
+                                </span>
+                                <span className="text-gray-600">
+                                    / {anime.members || "?"}
+                                </span>
+                            </div>
                         </div>
 
-                        <div className="mt-auto flex gap-3">
-                            <ActionButton
-                                variant="primary"
-                                onClick={() => console.log("Added to watched")}
-                            >
-                                ADD TO WATCHED
-                            </ActionButton>
-                            <ActionButton
-                                variant="secondary"
-                                onClick={() => console.log("Added to queue")}
-                            >
-                                ADD TO QUEUE
-                            </ActionButton>
+                        <div className="flex lg:gap-25 items-center justify-between text-base lg:text-lg">
+                            <p className="text-gray-400 capitalize">
+                                Popularity
+                            </p>
+                            <span className="text-gray-600">
+                                {anime.popularity || "N/A"}
+                            </span>
                         </div>
+
+                        <div className="flex lg:gap-20 items-center justify-between text-base lg:text-lg">
+                            <p className="text-gray-400 capitalize">
+                                Original Title
+                            </p>
+                            <span className="text-gray-600">
+                                {anime.title_english || anime.title}
+                            </span>
+                        </div>
+
+                        <div className="flex lg:gap-33 items-center justify-between text-base lg:text-lg">
+                            <p className="text-gray-400 capitalize">Genre</p>
+                            <span className="text-gray-600">
+                                {anime.genres
+                                    ?.map((g: any) => g.name)
+                                    .join(", ") || "Unknown"}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2 text-gray-700 text-sm">
+                        <p className="font-bold uppercase text-base lg:text-lg">
+                            About
+                        </p>
+                        <p className="text-sm lg:text-base">
+                            {anime.synopsis || "No description available."}
+                        </p>
+                    </div>
+
+                    <div className="flex gap-3">
+                        <ActionButton
+                            variant="primary"
+                            onClick={() => console.log("Added to watched")}
+                        >
+                            ADD TO WATCHED
+                        </ActionButton>
+                        <ActionButton
+                            variant="secondary"
+                            onClick={() => console.log("Added to queue")}
+                        >
+                            ADD TO QUEUE
+                        </ActionButton>
                     </div>
                 </div>
             </motion.div>
