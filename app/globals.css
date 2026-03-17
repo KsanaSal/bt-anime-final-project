@@ -96,14 +96,18 @@ a {
     }
 
     .bg-footer {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-            linear-gradient(rgba(2, 21, 65, 1), rgba(2, 21, 65, 1));
+        background: linear-gradient(rgba(2, 21, 65, 0.5), rgba(2, 21, 65, 0.5)),
+            url("./assets/images/bg-footer.png");
         background-size: cover, cover, cover;
         background-position: center, center, center;
         background-repeat: no-repeat, no-repeat, no-repeat;
     }
 }
-
+/* background: linear-gradient(
+                rgba(245, 127, 251, 0.1),
+                rgba(245, 127, 251, 0.1)
+            ),
+            linear-gradient(rgba(2, 21, 65, 1), rgba(2, 21, 65, 1)); */
 /* @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);

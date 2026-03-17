@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const Pagination = ({ lastPage }: { lastPage: number }) => {
     const router = useRouter();
@@ -9,9 +10,21 @@ const Pagination = ({ lastPage }: { lastPage: number }) => {
     const currentPage = Number(params.get("page")) || 1;
     const query = params.get("q") || "";
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 640);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     const getPage = () => {
         const pages = [];
-        const max = 5;
+        const max = isMobile ? 3 : 5;
 
         let start = Math.max(1, currentPage - 2);
         let end = Math.min(lastPage, start + max - 1);

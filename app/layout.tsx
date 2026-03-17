@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className="flex flex-col w-full justify-center">
+            <body className="flex flex-col w-full justify-center min-h-screen">
                 <Header />
                 <main className="flex flex-col items-center justify-between p-4 mt-75">
                     {children}
