@@ -12,7 +12,7 @@ import Container from "./Container";
 const Header = () => {
     return (
         <header
-            className=" fixed top-0 z-50 flex flex-col items-center w-full h-[250px]  
+            className=" fixed top-0 z-50 flex flex-col items-center w-full  h-[210px]  
         bg-header md:bg-header lg:bg-header py-6 md:py-8 lg:py-10 text-primaryLight"
         >
             <Container>
@@ -38,13 +38,13 @@ const Header = () => {
                                 <HomeIcon className="w-6 h-6" />
                                 Home
                             </Link>
-                            <Link
+                            {/* <Link
                                 href={"/library"}
                                 className="rounded rounded-2 bg-(--primaryDarkGradient) p-1 border border-(--primaryLight) font-medium uppercase px-2 py-1 h-7.5 flex items-center justify-center gap-2 hover:text-(--accent) hover:scale-110 hover:shadow-(--boxPrimaryLight) transform transition duration-200 ease-in-out"
                             >
                                 <LibraryIcon className="w-6 h-6" />
                                 Library
-                            </Link>
+                            </Link> */}
                             {/* <ButtonIcon
                         border="border"
                         borderColor="border-transparent-primaryLight7"
